@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1669211078768" clover="3.2.0">
-  <project timestamp="1669211078769" name="All files">
-    <metrics statements="53" coveredstatements="53" conditionals="40" coveredconditionals="40" methods="10" coveredmethods="10" elements="103" coveredelements="103" complexity="0" loc="53" ncloc="53" packages="3" files="7" classes="7"/>
+<coverage generated="1669259652871" clover="3.2.0">
+  <project timestamp="1669259652871" name="All files">
+    <metrics statements="63" coveredstatements="63" conditionals="40" coveredconditionals="40" methods="13" coveredmethods="13" elements="116" coveredelements="116" complexity="0" loc="63" ncloc="63" packages="5" files="9" classes="9"/>
+    <package name="Applications.security">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="PasswordHash.js" path="S:\ChickyEggs\ce-backend\src\Applications\security\PasswordHash.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+      </file>
+    </package>
+    <package name="Applications.use_case">
+      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+      <file name="AddUserUseCase.js" path="S:\ChickyEggs\ce-backend\src\Applications\use_case\AddUserUseCase.js">
+        <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+      </file>
+    </package>
     <package name="Commons.exceptions">
       <metrics statements="18" coveredstatements="18" conditionals="3" coveredconditionals="3" methods="4" coveredmethods="4"/>
       <file name="AuthenticationError.js" path="S:\ChickyEggs\ce-backend\src\Commons\exceptions\AuthenticationError.js">
@@ -41,48 +63,48 @@
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="3" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
       </file>
     </package>
     <package name="Domains.users.entities">
       <metrics statements="32" coveredstatements="32" conditionals="37" coveredconditionals="37" methods="4" coveredmethods="4"/>
       <file name="RegisterUser.js" path="S:\ChickyEggs\ce-backend\src\Domains\users\entities\RegisterUser.js">
         <metrics statements="18" coveredstatements="18" conditionals="20" coveredconditionals="20" methods="2" coveredmethods="2"/>
-        <line num="3" count="6" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="15" count="6" type="cond" truecount="7" falsecount="0"/>
+        <line num="3" count="8" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="15" count="8" type="cond" truecount="7" falsecount="0"/>
         <line num="16" count="1" type="stmt"/>
-        <line num="19" count="5" type="cond" truecount="7" falsecount="0"/>
+        <line num="19" count="7" type="cond" truecount="7" falsecount="0"/>
         <line num="22" count="1" type="stmt"/>
-        <line num="25" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="25" count="6" type="cond" truecount="2" falsecount="0"/>
         <line num="26" count="1" type="stmt"/>
-        <line num="29" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="29" count="5" type="cond" truecount="2" falsecount="0"/>
         <line num="30" count="1" type="stmt"/>
-        <line num="33" count="2" type="cond" truecount="2" falsecount="0"/>
+        <line num="33" count="4" type="cond" truecount="2" falsecount="0"/>
         <line num="34" count="1" type="stmt"/>
-        <line num="39" count="1" type="stmt"/>
+        <line num="39" count="2" type="stmt"/>
       </file>
       <file name="RegisteredUser.js" path="S:\ChickyEggs\ce-backend\src\Domains\users\entities\RegisteredUser.js">
         <metrics statements="14" coveredstatements="14" conditionals="17" coveredconditionals="17" methods="2" coveredmethods="2"/>
-        <line num="3" count="3" type="stmt"/>
-        <line num="5" count="1" type="stmt"/>
-        <line num="7" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
-        <line num="9" count="1" type="stmt"/>
-        <line num="10" count="1" type="stmt"/>
-        <line num="11" count="1" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="17" count="3" type="cond" truecount="8" falsecount="0"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="5" count="2" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
+        <line num="13" count="2" type="stmt"/>
+        <line num="17" count="4" type="cond" truecount="8" falsecount="0"/>
         <line num="18" count="1" type="stmt"/>
-        <line num="21" count="2" type="cond" truecount="9" falsecount="0"/>
+        <line num="21" count="3" type="cond" truecount="9" falsecount="0"/>
         <line num="25" count="1" type="stmt"/>
-        <line num="31" count="1" type="stmt"/>
+        <line num="31" count="2" type="stmt"/>
       </file>
     </package>
   </project>
