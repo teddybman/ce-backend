@@ -11,8 +11,9 @@ describe('AddUserUseCase', () => {
       username: 'user',
       fullname: 'username',
       email: 'my@email.com',
-      password: 'password',
+      password: 'secret_password',
       level: 1,
+      // isDeleted: 0,
     };
     
     const expectedRegisteredUser = new RegisteredUser({
@@ -20,9 +21,8 @@ describe('AddUserUseCase', () => {
       username: useCasePayload.username,
       fullname: useCasePayload.fullname,
       email: useCasePayload.email,
-      password: useCasePayload.password,
       level: useCasePayload.level,
-      isDeleted: false,
+      // isDeleted: useCasePayload.isDeleted,
     });
 
     // Dependency of use case
@@ -56,6 +56,7 @@ describe('AddUserUseCase', () => {
       email: useCasePayload.email,
       password: 'encrypted_password',
       level: useCasePayload.level,
+      // isDeleted: useCasePayload.isDeleted,
     }));
   });
 });

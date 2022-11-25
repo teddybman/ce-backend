@@ -1,13 +1,16 @@
 /* istanbul ignore file */
 const pool = require('../src/Infrastructures/database/postgres/pool');
+const createdDate = new Date().toISOString();
+const editedDate = createdDate;
  
 const UsersTableTestHelper = {
   async addUser({
-    id = 'user-123', username = 'user', password = 'secret', fullname = 'username',
+    id = 'user-123', username = 'user', fullname = 'username', email = 'my@email.com', 
+         password = 'secret_password', level = 1, isDeleted = 0, 
   }) {
     const query = {
-      text: 'INSERT INTO users VALUES($1, $2, $3, $4)',
-      values: [id, username, password, fullname],
+      text: 'INSERT INTO users VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $2, $2)',
+      values: [id, username, fullname, email, password, level, isDeleted, createdDate, editedDate,],
     };
  
     await pool.query(query);

@@ -5,10 +5,11 @@ describe('a RegisteredUser entities', () => {
   it('should throw error when payload did not contain needed property', () => {
     //Arange
     const payload = {
+      id: 'user-123',
       username: 'user',
       fullname: 'username',
       email: 'user@user.com',
-      password: 'abc',
+      // level: 1,
     };
 
     //Action and Assert
@@ -19,12 +20,11 @@ describe('a RegisteredUser entities', () => {
     //Arange
     const payload = {
       id: 'user-123',
-      username: 'user',
+      username: 123,
       fullname: 'username',
       email: 'user@user.com',
-      password: 123,
       level: 1,
-      isDeleted: true
+      // isDeleted: 0,
     };
 
     //Action and Assert
@@ -37,10 +37,9 @@ describe('a RegisteredUser entities', () => {
       id: 'user-123',
       username: 'user',
       fullname: 'username',
-      email: 'user@user.com',
-      password: 'abc',
+      email: 'my@email.com',
       level: 1,
-      isDeleted: true
+      // isDeleted: 0,
     };
 
     //Action 

@@ -28,6 +28,10 @@ exports.up = (pgm) => {
         type: 'INT',
         notNull: true,
       },
+      isdeleted: {
+        type: 'INT',
+        notNull: true,
+      },
       createddate: {
         type: 'TIMESTAMP',
         notNull: true,
