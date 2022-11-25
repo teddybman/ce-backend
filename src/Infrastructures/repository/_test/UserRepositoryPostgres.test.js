@@ -54,6 +54,29 @@ describe('UserRepositoryPostgres', () => {
       expect(users).toHaveLength(1);
     })
 
-  })
+    it('should return regeustered user correctly', async () => {
+      // Arrange
+      const registerUser = new RegisterUser({
+        username: 'user',
+        fullname: 'username',
+        email: 'my@email.com',
+        password: 'secret_password',
+        level: 1,
+      });
+      const fakeIdGenerator = () => '123';
+      const userRepositoryPostgres = new UserRepositoryPostgres(pool, fakeIdGenerator);
 
-})
+      // Action
+      const registeredUser = await userRepositoryPostgres.addUser(registerUser);
+
+      // Assert
+      expect(registeredUser).toStrictEqual(new RegisteredUser({
+        id: 'user-123',
+        username: 'user',
+        fullname: 'username',
+        email: 'my@email.com',
+        level: 1,
+      }));
+    });
+  });
+});
