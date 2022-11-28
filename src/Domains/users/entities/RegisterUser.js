@@ -12,13 +12,16 @@ class RegisterUser {
   }
 
   _verifyPayload({ username, fullname, email, password, level }) {
+
     if (!username || !fullname || !email || !password || !level ) {
+      // console.log(`Needed property : ${username} - ${fullname} - ${email} - ${password} - ${level}`);
       throw new Error('REGISTER_USER.NOT_CONTAIN_NEEDED_PROPERTY');
     }
 
     if (typeof username !== 'string' || typeof fullname !== 'string' || typeof email !== 'string' ||
       typeof password !== 'string' || typeof level !== 'number'
     ) {
+      // console.log(`Data type : ${username} - ${fullname} - ${email} - ${password} - ${level}`);
       throw new Error('REGISTER_USER.NOT_MEET_DATA_TYPE_SPECIFICATION');
     }
 
