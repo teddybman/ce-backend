@@ -1,17 +1,20 @@
-const AddUserUseCase = require('../../../../Applications/use_case/AddUserUseCase');
-const ClientError =  require('../../../../Commons/exceptions/ClientError');
-const DomainErrorTranslator = require('../../../../Commons/exceptions/DomainErrorTranslator');
+// const AddUserUseCase = require('../../../../Applications/use_case/AddUserUseCase');
+// const ClientError =  require('../../../../Commons/exceptions/ClientError');
+// const DomainErrorTranslator = require('../../../../Commons/exceptions/DomainErrorTranslator');
 
 class UsersHandler {
-  constructor(container) {
-    this._container = container;
+  constructor({ addUserUseCase }) {
+    // this._container = container;
+    this._addUserUseCase = addUserUseCase;
 
     this.postUserHandler = this.postUserHandler.bind(this);
   }
 
   async postUserHandler(request, h) {
-    const addUserUseCase = this._container.getInstance(AddUserUseCase.name);
-    const addedUser = await addUserUseCase.execute(request.payload);
+    // console.log('postUserHandler terpanggil....');
+    // const addUserUseCase = this._container.getInstance(AddUserUseCase.name);
+    // const addedUser = await addUserUseCase.execute(request.payload);
+    const addedUser = await this._addUserUseCase.execute(request.payload);
 
     const response = h.response({
       status: 'success',

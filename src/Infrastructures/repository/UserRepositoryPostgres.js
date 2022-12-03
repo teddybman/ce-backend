@@ -16,6 +16,7 @@ class UserRepositoryPostgres extends UserRepository {
     };
 
     const result = await this._pool.query(query);
+    // console.log('verifyAvailableUsername : ', result.rows);
 
     if (result.rowCount) {
       throw new InvariantError('username is unavailable');
@@ -42,6 +43,40 @@ class UserRepositoryPostgres extends UserRepository {
     //   result.rows[0].level, result.rows[0].isDeleted,
     // );
     // return new RegisteredUser({ id, username, fullname, email, level, isDeleted });
+  }
+
+  async getPasswordByUsername(username) {
+    const query = {
+      text: 'SELECT password FROM users WHERE username = $1',
+      values: [username],
+    }
+
+    const result = await this._pool.query(query);
+
+    if (!result.rowCount) {
+      throw new InvariantError('username is not found');
+    }
+
+    const { password } = result.rows[0];
+    
+    return password;
+  }
+
+  async getIdByUsername(username) {
+    const query = {
+      text: 'SELECT id FROM users WHERE username = $1',
+      values: [username],
+    };
+
+    const result = await this._pool.query(query);
+
+    if (!result.rowCount) {
+      throw new InvariantError('username is not found');
+    }
+
+    const { id } = result.rows[0];
+
+    return id;
   }
 }
 

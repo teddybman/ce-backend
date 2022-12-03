@@ -54,7 +54,7 @@ describe('UserRepositoryPostgres', () => {
       expect(users).toHaveLength(1);
     })
 
-    it('should return regeustered user correctly', async () => {
+    it('should return registered user correctly', async () => {
       // Arrange
       const registerUser = new RegisterUser({
         username: 'user',
@@ -77,6 +77,53 @@ describe('UserRepositoryPostgres', () => {
         email: 'my@email.com',
         level: 1,
       }));
+    });
+  });
+
+  describe('getPasswordByUsername function', () => {
+    it('should throw Invariant error when username is not found', async () => {
+      // Arrange
+      // await UsersTableTestHelper.addUser('user');
+      const userRepositoryPostgres = new UserRepositoryPostgres(pool, {});
+
+      // Action & Assert
+      await expect(userRepositoryPostgres.getPasswordByUsername('name')).rejects.toThrowError(InvariantError);
+
+    });
+
+    it('should return username and password when username is found', async () => {
+      // Arrange
+      const userRepositoryPostgres = new UserRepositoryPostgres(pool, {});
+      await UsersTableTestHelper.addUser({
+        username: 'user',
+        password: 'secret_password',
+      });
+
+      //Action & Assert
+      const password = await userRepositoryPostgres.getPasswordByUsername('user');
+      expect(password).toBe('secret_password');
+    });
+  });
+
+  describe('getIdByUsername function', () => {
+    it('should throw InvariantError when username not found', async () => {
+      // Arrange
+      const userRepositoryPostgres = new UserRepositoryPostgres(pool, {});
+
+      // Action & Assert
+      await expect(userRepositoryPostgres.getIdByUsername('user')).rejects.toThrowError(InvariantError);
+    });
+
+    it('should return user id correctly', async () => {
+      // Arrange
+      await UsersTableTestHelper.addUser({ id: 'user-123', username: 'user' });
+      const userRepositoryPostgres = new UserRepositoryPostgres(pool, {});
+
+      // Action
+      const userId = await userRepositoryPostgres.getIdByUsername('user');
+
+      // Assert
+      expect(userId).toEqual('user-123');
     });
   });
 });
