@@ -42,7 +42,7 @@ class AuthenticationsHandler {
     // console.log('putAuthenticationHandler terpanggil...');
     // const refreshAuthenticationUseCase = this._container.getInstance(RefreshAuthenticationUseCase.name);
     const accessToken = await this._refreshAuthenticationUseCase.execute(request.payload);
-    console.log('access token :', accessToken);
+    // console.log('access token :', accessToken);
 
     return {
       status: 'success',

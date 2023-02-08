@@ -1,4 +1,5 @@
 const InvariantError = require('../../Commons/exceptions/InvariantError');
+const AuthorizationError = require('../../Commons/exceptions/AuthorizationError');
 const RegisteredUser = require('../../Domains/users/entities/RegisteredUser');
 const UserRepository = require('../../Domains/users/UserRepository');
 
@@ -77,6 +78,21 @@ class UserRepositoryPostgres extends UserRepository {
     const { id } = result.rows[0];
 
     return id;
+  }
+
+  async verifyAdminUser(userId) {
+    const query = {
+      text: 'SELECT level FROM users WHERE id =  $1',
+      values: [userId],
+    };
+    console.log('Query :', query);
+
+    const result = await this._pool.query(query);
+    console.log('Level', result.rows[0].level);
+
+    if (result.rows[0].level !== 1) {
+      throw new AuthorizationError('Administrator level required to perform this action!');
+    }
   }
 }
 
